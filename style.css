@@ -1,0 +1,79 @@
+/* ألوان عامة هادئة وجميلة */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fff0f5; /* وردي ناعم جداً */
+    color: #4a4a4a;
+    margin: 0;
+    padding: 20px;
+    direction: rtl;
+}
+
+h1 {
+    text-align: center;
+    color: #d87093; /* وردي دافئ */
+    margin-bottom: 30px;
+}
+
+/* تنسيق لوحة الأعمدة */
+.kanban-board {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* تصميم الأعمدة */
+.column {
+    background-color: #ffffff;
+    border-radius: 16px;
+    width: 280px;
+    padding: 15px;
+    box-shadow: 0 8px 16px rgba(218, 112, 214, 0.15); /* ظل وردي خفيف */
+    border: 2px solid #ffe4e1;
+}
+
+.column h2 {
+    font-size: 1.1rem;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 0;
+}
+
+/* ألوان مخصصة لكل عمود بألوان كيوت */
+.todo-col h2 {
+    background-color: #ffb6c1; /* وردي فاتح */
+    color: #5c2738;
+}
+
+.in-progress-col h2 {
+    background-color: #e6e6fa; /* لافندر لطيف */
+    color: #3d2b56;
+}
+
+.done-col h2 {
+    background-color: #d8bfd8; /* بنفسجي فاتح */
+    color: #3b233b;
+}
+
+/* تصميم بطاقة المهمة (Task Card) */
+.task-card {
+    background-color: #fff9fb;
+    border: 1px solid #ffdae9;
+    border-radius: 12px;
+    padding: 12px;
+    margin-top: 12px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+}
+
+.task-card h3 {
+    margin: 0 0 6px 0;
+    font-size: 1rem;
+    color: #c71585;
+}
+
+.task-card p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #666;
+}
