@@ -3,20 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>نظام إدارة المهام - Kanban</title>
+    <title>نظام إدارة المهام - Kanban 🎀</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>لوحة إدارة المهام (Kanban Board)</h1>
+    <h1>لوحة إدارة المهام ✨</h1>
     
     <div class="kanban-board">
-        <div class="column">
-            <h2>قيد الانتظار (To Do)</h2>
+        <!-- عمود قيد الانتظار -->
+        <div class="column todo-col">
+            <h2>🌸 قيد الانتظار (To Do)</h2>
+            <div class="task-card">
+                <h3>تصميم واجهة المستخدم</h3>
+                <p>اختيار الألوان والخطوط الكيوت</p>
+            </div>
         </div>
-        <div class="column">
-            <h2>قيد التنفيذ (In Progress)</h2>
+
+        <!-- عمود قيد التنفيذ -->
+        <div class="column in-progress-col">
+            <h2>🌷 قيد التنفيذ (In Progress)</h2>
+            <div class="task-card">
+                <h3>كتابة كود الـ HTML & CSS</h3>
+                <p>تجهيز التنسيقات الأساسية للوحة</p>
+            </div>
         </div>
-        <div class="column">
-            <h2>مكتملة (Done)</h2>
+
+        <!-- عمود مكتملة -->
+        <div class="column done-col">
+            <h2>🎀 مكتملة (Done)</h2>
+            <div class="task-card">
+                <h3>ربط المستودع بـ GitHub</h3>
+                <p>تم إعداد Git والـ Branches بنجاح</p>
+            </div>
         </div>
     </div>
 </body>
