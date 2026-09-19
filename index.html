@@ -1,23 +1,149 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>نظام إدارة المهام - Kanban</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>لوحة المهام الكتكوتة 🎀</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>لوحة إدارة المهام (Kanban Board)</h1>
+
+  <!-- الهيدر اللطيف -->
+  <header class="main-header">
+    <h1>لوحة مهامي اللطيفة 🌸✨</h1>
+    <button id="open-modal-btn" class="add-task-btn">+ إضافة مهمة جديدة 📑</button>
+  </header>
+
+  <!-- حاوية الأعمدة الوردي -->
+  <main class="board-container">
     
-    <div class="kanban-board">
-        <div class="column">
-            <h2>قيد الانتظار (To Do)</h2>
+    <!-- عمود المهام المنتظرة -->
+    <section class="column" id="todo-column">
+      <h2>⏳ قيد الانتظار (To Do)</h2>
+      <div class="task-list" id="todo-list">
+        
+        <!-- بطاقة تجريبية كيوت -->
+
+        <div class="task-card">
+          <h3 class="task-title">التأسيس والإدارة 🎨</h3>
+          <p class="task-desc">ترتيب التنسيقات والألوان الوردي مع رنيم وفاطمة وأسينات 💕</p>
+          <div class="task-meta">
+            <span class="task-assignee">👑 المسؤولة: رنيم</span>
+            <button class="delete-btn">حذف 🗑️</button>
+          </div>
         </div>
-        <div class="column">
-            <h2>قيد التنفيذ (In Progress)</h2>
+
+        
+        <div class="task-card">
+          <h3 class="task-title">التصميمات والألوان 🎨</h3>
+          <p class="task-desc">ترتيب التنسيقات والألوان الوردي مع رنيم وفاطمة وأسينات 💕</p>
+          <div class="task-meta">
+            <span class="task-assignee">👑 المسؤولة: فاطمة</span>
+            <button class="delete-btn">حذف 🗑️</button>
+          </div>
         </div>
-        <div class="column">
-            <h2>مكتملة (Done)</h2>
+
+
+
+        <div class="task-card">
+          <h3 class="task-title">تصميم الواجهة 🎨</h3>
+          <p class="task-desc">ترتيب التنسيقات والألوان الوردي مع رنيم وفاطمة وأسينات 💕</p>
+          <div class="task-meta">
+            <span class="task-assignee">👑 المسؤولة: أسينات</span>
+            <button class="delete-btn">حذف 🗑️</button>
+          </div>
         </div>
-    </div>
+
+
+
+
+
+      </div>
+    </section>
+
+    <!-- عمود المهام اللي عم نشتغل عليها -->
+    <section class="column" id="in-progress-column">
+      <h2>🚀 قيد التنفيذ (In Progress)</h2>
+      <div class="task-list" id="in-progress-list"></div>
+    </section>
+
+    <!-- عمود المهام الخالصة -->
+    <section class="column" id="done-column">
+      <h2>🎉 مكتملة (Done)</h2>
+      <div class="task-list" id="done-list"></div>
+    </section>
+
+  </main>
+
+
+
+<!-- نافذة إضافة مهمة جديدة (Modal) -->
+<div id="task-modal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" id="close-modal-btn">&times;</span>
+    <h2>إضافة مهمة جديدة 🎀</h2>
+    
+    <form id="add-task-form">
+      <div class="form-group">
+        <label>عنوان المهمة ✨</label>
+        <input type="text" id="task-title-input" placeholder="مثلاً: تصميم زر الإضافة" required>
+      </div>
+
+      <div class="form-group">
+        <label>الوصف 📝</label>
+        <textarea id="task-desc-input" placeholder="اكتبي تفاصيل المهمة هنا..." rows="3"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>المسؤولة 👑</label>
+        <input type="text" id="task-assignee-input" placeholder="اسم المسؤولة" required>
+      </div>
+
+      <button type="submit" class="submit-btn">حفظ المهمة 💕</button>
+    </form>
+  </div>
+</div>
+
+
+<!-- Modal إضافة مهمة جديدة بتصميم كتكوت -->
+<div id="taskModal" class="pink-modal">
+  <div class="pink-modal-content">
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+    <h3>✨ إضافة مهمة جديدة ✨</h3>
+    <input type="text" id="taskTitle" placeholder="اسم المهمة الوردية..." />
+    <textarea id="taskDesc" placeholder="وصف المهمة النمنم..."></textarea>
+    <button class="pink-btn" onclick="addNewTask()">حفظ المهمة 🌸</button>
+  </div>
+</div>
+
+<!-- Modal تعديل المهمة -->
+<div id="edit-task-modal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" id="close-edit-modal-btn">&times;</span>
+    <h2>تعديل المهمة ✏️</h2>
+
+    <form id="edit-task-form">
+      <div class="form-group">
+        <label>عنوان المهمة</label>
+        <input type="text" id="edit-task-title" required>
+      </div>
+
+      <div class="form-group">
+        <label>الوصف</label>
+        <textarea id="edit-task-desc" rows="3"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>المسؤولة</label>
+        <input type="text" id="edit-task-assignee" required>
+      </div>
+
+      <button type="submit" class="submit-btn">حفظ التعديلات 💕</button>
+    </form>
+  </div>
+</div>
+
+<script src="script.js"></script>
+
 </body>
 </html>
